@@ -262,7 +262,17 @@ async function createEvent(){
     alert('Please fill in title, date, time, location and capacity.');
     return;
   }
-  await fetch(`${API}/events`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  try{
+    const res = await fetch(`${API}/events`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    if(!res.ok){
+      const err = await res.json().catch(()=>({message:'Unknown server error'}));
+      alert('Failed to create event: ' + (err.message || res.status));
+      return;
+    }
+  }catch(e){
+    alert('Could not reach the server. It may still be waking up (Render free tier) — wait 30-60s and try again.\n\n' + e.message);
+    return;
+  }
   await goTo('admin');
 }
 
