@@ -1,4 +1,4 @@
-const API = 'http://localhost:5050/api';
+const API = 'https://evently-mu1d.onrender.com/api';
 const app = document.getElementById('app');
 
 let state = {
