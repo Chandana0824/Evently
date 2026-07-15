@@ -3,8 +3,6 @@
 A full-stack event booking platform. Users can browse events and book seats,
 admins can create and manage events with live registration stats.
 
-**Live demo:** https://chandana0824.github.io/evently/
-**Backend API:** https://evently-mu1d.onrender.com
 
 > Note: the backend is on a free hosting tier and sleeps when idle. The first
 > request after inactivity can take 30–60 seconds to respond.
